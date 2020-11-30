@@ -17,6 +17,16 @@
         <AssociationConnector Association="ComercialModel.FK__Venta__cliente__1DE57479" ManuallyRouted="false" />
         <AssociationConnector Association="ComercialModel.FK__DetalleVe__idPro__20C1E124" ManuallyRouted="false" />
         <AssociationConnector Association="ComercialModel.FK__Producto__marca__164452B1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ComercialModel.C__MigrationHistory" Width="1.5" PointX="5.375" PointY="8.75" />
+        <EntityTypeShape EntityType="ComercialModel.AspNetRoles" Width="1.5" PointX="7.375" PointY="5.5" />
+        <EntityTypeShape EntityType="ComercialModel.AspNetUserClaims" Width="1.5" PointX="11.875" PointY="6.625" />
+        <EntityTypeShape EntityType="ComercialModel.AspNetUserLogins" Width="1.5" PointX="11.875" PointY="4" />
+        <EntityTypeShape EntityType="ComercialModel.AspNetUsers" Width="1.5" PointX="9.625" PointY="4.375" />
+        <AssociationConnector Association="ComercialModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="ComercialModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="ComercialModel.FK__DetalleVe__idVen__49C3F6B7" />
+        <AssociationConnector Association="ComercialModel.AspNetUserRoles" />
+        <AssociationConnector Association="ComercialModel.FK__Producto__provee__4CA06362" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

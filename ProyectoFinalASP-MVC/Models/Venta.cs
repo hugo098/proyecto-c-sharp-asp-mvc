@@ -14,10 +14,18 @@ namespace ProyectoFinalASP_MVC.Models
     
     public partial class Venta
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Venta()
+        {
+            this.DetalleVenta = new HashSet<DetalleVenta>();
+        }
+    
         public int idVenta { get; set; }
         public System.DateTime fecha { get; set; }
         public Nullable<int> cliente { get; set; }
     
         public virtual Cliente Cliente1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DetalleVenta> DetalleVenta { get; set; }
     }
 }

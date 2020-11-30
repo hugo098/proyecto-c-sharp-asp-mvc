@@ -12,13 +12,13 @@ namespace ProyectoFinalASP_MVC.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DetalleVenta
+    public partial class AspNetUserClaims
     {
-        public int idVenta { get; set; }
-        public int idProducto { get; set; }
-        public int cantidad { get; set; }
+        public int Id { get; set; }
+        public string UserId { get; set; }
+        public string ClaimType { get; set; }
+        public string ClaimValue { get; set; }
     
-        public virtual Producto Producto { get; set; }
-        public virtual Venta Venta { get; set; }
+        public virtual AspNetUsers AspNetUsers { get; set; }
     }
 }

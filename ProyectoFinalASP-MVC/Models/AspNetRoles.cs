@@ -12,13 +12,18 @@ namespace ProyectoFinalASP_MVC.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DetalleVenta
+    public partial class AspNetRoles
     {
-        public int idVenta { get; set; }
-        public int idProducto { get; set; }
-        public int cantidad { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public AspNetRoles()
+        {
+            this.AspNetUsers = new HashSet<AspNetUsers>();
+        }
     
-        public virtual Producto Producto { get; set; }
-        public virtual Venta Venta { get; set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AspNetUsers> AspNetUsers { get; set; }
     }
 }

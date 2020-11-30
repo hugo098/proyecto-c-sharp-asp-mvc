@@ -12,13 +12,11 @@ namespace ProyectoFinalASP_MVC.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DetalleVenta
+    public partial class C__MigrationHistory
     {
-        public int idVenta { get; set; }
-        public int idProducto { get; set; }
-        public int cantidad { get; set; }
-    
-        public virtual Producto Producto { get; set; }
-        public virtual Venta Venta { get; set; }
+        public string MigrationId { get; set; }
+        public string ContextKey { get; set; }
+        public byte[] Model { get; set; }
+        public string ProductVersion { get; set; }
     }
 }

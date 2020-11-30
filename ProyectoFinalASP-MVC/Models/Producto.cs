@@ -26,10 +26,12 @@ namespace ProyectoFinalASP_MVC.Models
         public Nullable<int> categoria { get; set; }
         public int cantidadStock { get; set; }
         public int precio { get; set; }
+        public Nullable<int> proveedor { get; set; }
     
         public virtual Categoria Categoria1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetalleVenta> DetalleVenta { get; set; }
         public virtual Marca Marca1 { get; set; }
+        public virtual Proveedor Proveedor1 { get; set; }
     }
 }

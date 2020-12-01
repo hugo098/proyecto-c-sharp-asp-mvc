@@ -3,40 +3,39 @@
 @{
     ViewBag.Title = "Edit";
 }
+<div style="margin-left:5%; margin-right:5%;">
+    <h2>Editar categoria</h2>
 
-<h2>Edit</h2>
 
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Categoria</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.idCategoria)
+        <div class="form-horizontal">            
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.idCategoria)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.descripcionCategoria, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Descripción</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.descripcionCategoria, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.descripcionCategoria, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Guardar cambios" class="btn btn-warning" />
+                </div>
             </div>
         </div>
+    }
+
+    <div style="margin-bottom:1em;margin-top:2em;"> 
+        @Html.ActionLink("Regresar al listado", "Index", null, new { @class = "btn btn-primary" })
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

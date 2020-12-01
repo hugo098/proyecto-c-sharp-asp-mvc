@@ -4,36 +4,42 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div style="margin-left:5%; margin-right:5%;">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            ID
-        </th>
-        <th>
-            Descripcion
-        </th>
-        <th></th>
-    </tr>
+    <h2>Categoria</h2>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.idCategoria)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.descripcionCategoria)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.idCategoria }) |
-        @Html.ActionLink("Details", "Details", new { id = item.idCategoria }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.idCategoria })
-    </td>
-</tr>
-}
+    <p>
+        @Html.ActionLink("Agregar nuevo", "Create", null, htmlAttributes: new { @class = "btn btn-success" })
+    </p>
+    <table class="table table-bordered table-hover" >
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Descripción
+                </th>
+                <th></th>
+            </tr>
+        </thead>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idCategoria)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descripcionCategoria)
+                </td>
+                <td style="text-align:right;">
+                    @Html.ActionLink("Detalles", "Details", new { id = item.idCategoria }, htmlAttributes: new { @class = "btn btn-info" })
+                    @Html.ActionLink("Editar", "Edit", new { id = item.idCategoria }, htmlAttributes: new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.idCategoria }, htmlAttributes: new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

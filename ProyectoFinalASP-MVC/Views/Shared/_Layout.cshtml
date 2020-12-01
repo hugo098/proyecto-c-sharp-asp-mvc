@@ -23,8 +23,8 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Biografía", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contacto", "Index", "Contactos")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -48,7 +48,7 @@
                     @Html.ActionLink("Categorias", "Index", "Categorias", null, new { @class = "nav-link" })
                 </li>
                 <li class="nav-item">
-                    @Html.ActionLink("Contacto", "Contact", "Home", null, new { @class = "nav-link" })
+                    @Html.ActionLink("Contacto", "Create", "Contactos", null, new { @class = "nav-link" })
                 </li>
                 <!--<li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

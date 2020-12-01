@@ -15,8 +15,16 @@
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
+<ul class="nav navbar-nav navbar-right">
+
+    <li style="margin-right:0.5em; margin-bottom:0.25em; margin-top:0.25em;">
+        @Html.ActionLink("Registrarse", "Register", "Account", routeValues: null,
+        htmlAttributes: new { @class = "btn btn-primary" })
+    </li>
+    
+    <li style="margin-right:0.5em; margin-bottom:0.25em; margin-top:0.25em;">
+    @Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, 
+    htmlAttributes: new { @class = "btn btn-primary" })
+    </li>
+</ul>
 }

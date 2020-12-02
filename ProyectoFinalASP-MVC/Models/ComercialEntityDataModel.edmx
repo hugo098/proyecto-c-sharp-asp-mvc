@@ -424,7 +424,6 @@ advertencia 6002: La tabla o vista 'Comercial.sys.database_firewall_rules' no ti
           <Property Name="razonSocial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="direccion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Producto" Relationship="ComercialModel.FK__Producto__provee__4CA06362" FromRole="Proveedor" ToRole="Producto" />
           <Property Name="RUC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Venta">

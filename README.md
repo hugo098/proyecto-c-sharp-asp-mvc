@@ -1,7 +1,7 @@
 # proyecto-c-sharp-asp-mvc
 
 #SCRIPT DE BASE DE DATOS UTILIZADA
-=================================================================================
+----------------------------------------
 CREATE DATABASE Comercial;
 
 CREATE TABLE Marca(
@@ -59,7 +59,7 @@ CREATE TABLE Contacto(
 	correo VARCHAR(25) NOT NULL,
 	mensaje  VARCHAR(255) NOT NULL
 );
-=================================================================================
+----------------------------------------
 
 #CONFIGURACIÓN
 1-Descargar o clonar el proyecto

@@ -62,13 +62,13 @@ CREATE TABLE Contacto(
 ----------------------------------------
 
 #CONFIGURACIÓN
-1-Descargar o clonar el proyecto
-2-Añadir el archivo Web.config, Web.Debug.config y Web.Release.config al proyecto
-3-Compilar
-4-Restaurar la instalación de paquetes NuGet
-5-En caso de tener problemas con la carpeta Roslyn
-  5.1- Reinstalar el paquete Microsoft.CodeDom.Providers.DotNetCompilerPlatform
-6-En caso de que el problema siga, googlear!
+1.Descargar o clonar el proyecto
+2.Añadir el archivo Web.config, Web.Debug.config y Web.Release.config al proyecto
+3.Compilar
+4.Restaurar la instalación de paquetes NuGet
+5.En caso de tener problemas con la carpeta Roslyn
+  5.1. Reinstalar el paquete Microsoft.CodeDom.Providers.DotNetCompilerPlatform
+6.En caso de que el problema siga, googlear!
 
 #Desplegado en: https://proyectofinalasp-mvc2020.azurewebsites.net/
 

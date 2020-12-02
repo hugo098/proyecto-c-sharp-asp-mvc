@@ -77,10 +77,11 @@
           <Key>
             <PropertyRef Name="idCliente" />
           </Key>
-          <Property Name="idCliente" Type="int" Nullable="false" />
+          <Property Name="idCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="telefono" Type="varchar" MaxLength="20" />
           <Property Name="direccion" Type="varchar" MaxLength="20" />
+          <Property Name="documento" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Contacto">
           <Key>
@@ -123,10 +124,11 @@
           <Key>
             <PropertyRef Name="idProveedor" />
           </Key>
-          <Property Name="idProveedor" Type="int" Nullable="false" />
+          <Property Name="idProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="razonSocial" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="telefono" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="direccion" Type="varchar" MaxLength="20" />
+          <Property Name="RUC" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Venta">
           <Key>
@@ -136,7 +138,25 @@
           <Property Name="fecha" Type="datetime" Nullable="false" />
           <Property Name="cliente" Type="int" />
         </EntityType>
-        <Association Name="FK__DetalleVe__idPro__4AB81AF0">
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Comercial.sys.database_firewall_rules' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="database_firewall_rules">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="start_ip_address" />
+            <PropertyRef Name="end_ip_address" />
+            <PropertyRef Name="create_date" />
+            <PropertyRef Name="modify_date" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="start_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="end_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="create_date" Type="datetime" Nullable="false" />
+          <Property Name="modify_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__DetalleVe__idPro__6EF57B66">
           <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
           <End Role="DetalleVenta" Type="Self.DetalleVenta" Multiplicity="*" />
           <ReferentialConstraint>
@@ -148,7 +168,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DetalleVe__idVen__49C3F6B7">
+        <Association Name="FK__DetalleVe__idVen__6E01572D">
           <End Role="Venta" Type="Self.Venta" Multiplicity="1" />
           <End Role="DetalleVenta" Type="Self.DetalleVenta" Multiplicity="*" />
           <ReferentialConstraint>
@@ -160,7 +180,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Producto__catego__173876EA">
+        <Association Name="FK__Producto__catego__6383C8BA">
           <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
           <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
           <ReferentialConstraint>
@@ -172,7 +192,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Producto__marca__164452B1">
+        <Association Name="FK__Producto__marca__628FA481">
           <End Role="Marca" Type="Self.Marca" Multiplicity="0..1" />
           <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
           <ReferentialConstraint>
@@ -184,7 +204,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Producto__provee__4CA06362">
+        <Association Name="FK__Producto__provee__656C112C">
           <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="0..1" />
           <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
           <ReferentialConstraint>
@@ -196,7 +216,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Venta__cliente__1DE57479">
+        <Association Name="FK__Venta__cliente__6B24EA82">
           <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
           <End Role="Venta" Type="Self.Venta" Multiplicity="*" />
           <ReferentialConstraint>
@@ -279,27 +299,37 @@
           <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Proveedor" EntityType="Self.Proveedor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Venta" EntityType="Self.Venta" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__DetalleVe__idPro__4AB81AF0" Association="Self.FK__DetalleVe__idPro__4AB81AF0">
+          <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
+            <DefiningQuery>SELECT 
+    [database_firewall_rules].[id] AS [id], 
+    [database_firewall_rules].[name] AS [name], 
+    [database_firewall_rules].[start_ip_address] AS [start_ip_address], 
+    [database_firewall_rules].[end_ip_address] AS [end_ip_address], 
+    [database_firewall_rules].[create_date] AS [create_date], 
+    [database_firewall_rules].[modify_date] AS [modify_date]
+    FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__DetalleVe__idPro__6EF57B66" Association="Self.FK__DetalleVe__idPro__6EF57B66">
             <End Role="Producto" EntitySet="Producto" />
             <End Role="DetalleVenta" EntitySet="DetalleVenta" />
           </AssociationSet>
-          <AssociationSet Name="FK__DetalleVe__idVen__49C3F6B7" Association="Self.FK__DetalleVe__idVen__49C3F6B7">
+          <AssociationSet Name="FK__DetalleVe__idVen__6E01572D" Association="Self.FK__DetalleVe__idVen__6E01572D">
             <End Role="Venta" EntitySet="Venta" />
             <End Role="DetalleVenta" EntitySet="DetalleVenta" />
           </AssociationSet>
-          <AssociationSet Name="FK__Producto__catego__173876EA" Association="Self.FK__Producto__catego__173876EA">
+          <AssociationSet Name="FK__Producto__catego__6383C8BA" Association="Self.FK__Producto__catego__6383C8BA">
             <End Role="Categoria" EntitySet="Categoria" />
             <End Role="Producto" EntitySet="Producto" />
           </AssociationSet>
-          <AssociationSet Name="FK__Producto__marca__164452B1" Association="Self.FK__Producto__marca__164452B1">
+          <AssociationSet Name="FK__Producto__marca__628FA481" Association="Self.FK__Producto__marca__628FA481">
             <End Role="Marca" EntitySet="Marca" />
             <End Role="Producto" EntitySet="Producto" />
           </AssociationSet>
-          <AssociationSet Name="FK__Producto__provee__4CA06362" Association="Self.FK__Producto__provee__4CA06362">
+          <AssociationSet Name="FK__Producto__provee__656C112C" Association="Self.FK__Producto__provee__656C112C">
             <End Role="Proveedor" EntitySet="Proveedor" />
             <End Role="Producto" EntitySet="Producto" />
           </AssociationSet>
-          <AssociationSet Name="FK__Venta__cliente__1DE57479" Association="Self.FK__Venta__cliente__1DE57479">
+          <AssociationSet Name="FK__Venta__cliente__6B24EA82" Association="Self.FK__Venta__cliente__6B24EA82">
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="Venta" EntitySet="Venta" />
           </AssociationSet>
@@ -340,6 +370,7 @@
           <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="direccion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Venta" Relationship="Self.FK__Venta__cliente__1DE57479" FromRole="Cliente" ToRole="Venta" />
+          <Property Name="documento" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Contacto">
           <Key>
@@ -394,6 +425,7 @@
           <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="direccion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Producto" Relationship="ComercialModel.FK__Producto__provee__4CA06362" FromRole="Proveedor" ToRole="Producto" />
+          <Property Name="RUC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Venta">
           <Key>
@@ -503,6 +535,7 @@
             <End Role="Proveedor" EntitySet="Proveedor" />
             <End Role="Producto" EntitySet="Producto" />
           </AssociationSet>
+          <EntitySet Name="database_firewall_rules" EntityType="ComercialModel.database_firewall_rules" />
         </EntityContainer>
         <EntityType Name="C__MigrationHistory">
           <Key>
@@ -619,6 +652,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="database_firewall_rules">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="start_ip_address" />
+            <PropertyRef Name="end_ip_address" />
+            <PropertyRef Name="create_date" />
+            <PropertyRef Name="modify_date" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="start_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="end_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -636,6 +685,7 @@
           <EntitySetMapping Name="Cliente">
             <EntityTypeMapping TypeName="ComercialModel.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="documento" ColumnName="documento" />
                 <ScalarProperty Name="idCliente" ColumnName="idCliente" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="telefono" ColumnName="telefono" />
@@ -686,6 +736,7 @@
           <EntitySetMapping Name="Proveedor">
             <EntityTypeMapping TypeName="ComercialModel.Proveedor">
               <MappingFragment StoreEntitySet="Proveedor">
+                <ScalarProperty Name="RUC" ColumnName="RUC" />
                 <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
                 <ScalarProperty Name="razonSocial" ColumnName="razonSocial" />
                 <ScalarProperty Name="telefono" ColumnName="telefono" />
@@ -765,6 +816,18 @@
               <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="database_firewall_rules">
+            <EntityTypeMapping TypeName="ComercialModel.database_firewall_rules">
+              <MappingFragment StoreEntitySet="database_firewall_rules">
+                <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
+                <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

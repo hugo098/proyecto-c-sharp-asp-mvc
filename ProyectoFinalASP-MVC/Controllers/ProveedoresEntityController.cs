@@ -11,109 +11,121 @@ using ProyectoFinalASP_MVC.Models;
 namespace ProyectoFinalASP_MVC.Controllers
 {
     [Authorize]
-    public class CategoriasController : Controller
+    public class ProveedoresEntityController : Controller
     {
         private ComercialEntities db = new ComercialEntities();
 
-        // GET: Categorias
+        // GET: ProveedoresEntity
         public ActionResult Index()
         {
-            return View(db.Categoria.ToList());
+            return View(db.Proveedor.ToList());
         }
 
-        // GET: Categorias/Details/5
+        // GET: ProveedoresEntity/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categoria categoria = db.Categoria.Find(id);
-            if (categoria == null)
+            Proveedor proveedor = db.Proveedor.Find(id);
+            if (proveedor == null)
             {
                 return HttpNotFound();
             }
-            return View(categoria);
+            return View(proveedor);
         }
 
-        // GET: Categorias/Create
+        // GET: ProveedoresEntity/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Categorias/Create
+        // POST: ProveedoresEntity/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idCategoria,descripcionCategoria")] Categoria categoria)
+        public ActionResult Create([Bind(Include = "RUC,idProveedor,razonSocial,telefono,direccion")] Proveedor proveedor)
         {
             if (ModelState.IsValid)
             {
-                db.Categoria.Add(categoria);
+
+                db.Proveedor.Add(proveedor);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+
+
             }
 
-            return View(categoria);
+            return View(proveedor);
         }
 
-        // GET: Categorias/Edit/5
+        // GET: ProveedoresEntity/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categoria categoria = db.Categoria.Find(id);
-            if (categoria == null)
+            Proveedor proveedor = db.Proveedor.Find(id);
+            if (proveedor == null)
             {
                 return HttpNotFound();
             }
-            return View(categoria);
+            return View(proveedor);
         }
 
-        // POST: Categorias/Edit/5
+        // POST: ProveedoresEntity/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idCategoria,descripcionCategoria")] Categoria categoria)
+        public ActionResult Edit([Bind(Include = "RUC,idProveedor,razonSocial,telefono,direccion")] Proveedor proveedor)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(categoria).State = EntityState.Modified;
+
+                db.Entry(proveedor).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
+
             }
-            return View(categoria);
+            return View(proveedor);
         }
 
-        // GET: Categorias/Delete/5
+        // GET: ProveedoresEntity/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categoria categoria = db.Categoria.Find(id);
-            if (categoria == null)
+            Proveedor proveedor = db.Proveedor.Find(id);
+            if (proveedor == null)
             {
                 return HttpNotFound();
             }
-            return View(categoria);
+            return View(proveedor);
         }
 
-        // POST: Categorias/Delete/5
+        // POST: ProveedoresEntity/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Categoria categoria = db.Categoria.Find(id);
-            db.Categoria.Remove(categoria);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                Proveedor proveedor = db.Proveedor.Find(id);
+                db.Proveedor.Remove(proveedor);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch(Exception ex)
+            {
+                return View("Error");
+            }
         }
 
         protected override void Dispose(bool disposing)

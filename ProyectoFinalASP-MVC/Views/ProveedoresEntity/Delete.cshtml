@@ -1,0 +1,65 @@
+﻿@model ProyectoFinalASP_MVC.Models.Proveedor
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div style="margin-left:5%; margin-right:5%;">
+    <h2>Eliminar Proveedor</h2>
+
+    <h3>Está seguro de eliminar esto?</h3>
+    <div>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    RUC
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.RUC)
+                </dd>
+                <dt>
+                    Identificador en el sistema
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.idProveedor)
+                </dd>
+                <dt>
+                    Razón Social
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.razonSocial)
+                </dd>
+
+                <dt>
+                    Teléfono
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.telefono)
+                </dd>
+
+                <dt>
+                    Dirección
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.direccion)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color" style="margin-bottom:1em;margin-top:2em;">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                    @Html.ActionLink("Regresar al listado", "Index", null, new { @class = "btn btn-primary" })
+                </div>
+            }
+        </div>
+    </div>

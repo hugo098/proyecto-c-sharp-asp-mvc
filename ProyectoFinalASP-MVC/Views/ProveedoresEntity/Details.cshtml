@@ -1,0 +1,56 @@
+﻿@model ProyectoFinalASP_MVC.Models.Proveedor
+
+@{
+    ViewBag.Title = "Details";
+}
+<div style="margin-left:5%; margin-right:5%;">
+    <h2>Detalles de Proveedor</h2>
+
+    <div>        
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                RUC
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RUC)
+            </dd>
+            <dt>
+                Identificador en el sistema
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.idProveedor)
+            </dd>
+            <dt>
+                Razón Social
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.razonSocial)
+            </dd>
+
+            <dt>
+                Teléfono
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.telefono)
+            </dd>
+
+            <dt>
+                Dirección
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.direccion)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.idProveedor }, htmlAttributes: new { @class = "btn btn-warning" })
+        @Html.ActionLink("Regresar al listado", "Index", null, htmlAttributes: new { @class = "btn btn-primary" })
+    </p>
+</div>

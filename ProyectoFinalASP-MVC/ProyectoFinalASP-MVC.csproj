@@ -188,6 +188,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProveedoresController.cs" />
+    <Compile Include="Controllers\ProveedoresEntityController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -231,6 +232,9 @@
     <Compile Include="Models\C__MigrationHistory.cs">
       <DependentUpon>ComercialEntityDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\database_firewall_rules.cs">
+      <DependentUpon>ComercialEntityDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DetalleVenta.cs">
       <DependentUpon>ComercialEntityDataModel.tt</DependentUpon>
     </Compile>
@@ -252,10 +256,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\carousel.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -279,6 +282,7 @@
     <Content Include="Models\ComercialEntityDataModel.edmx.diagram">
       <DependentUpon>ComercialEntityDataModel.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\ProyectoFinalASP-MVC2020 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -334,6 +338,11 @@
     <Content Include="Views\Contactos\Details.cshtml" />
     <Content Include="Views\Contactos\Edit.cshtml" />
     <Content Include="Views\Contactos\Index.cshtml" />
+    <Content Include="Views\ProveedoresEntity\Create.cshtml" />
+    <Content Include="Views\ProveedoresEntity\Delete.cshtml" />
+    <Content Include="Views\ProveedoresEntity\Details.cshtml" />
+    <Content Include="Views\ProveedoresEntity\Edit.cshtml" />
+    <Content Include="Views\ProveedoresEntity\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -343,10 +352,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ProyectoFinalASP_MVC.Models.Proveedor>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div style="margin-left:5%; margin-right:5%;">
+    <h2>Proveedores</h2>
+
+    <p>
+        @Html.ActionLink("Agregar nuevo", "Create", null, htmlAttributes: new { @class = "btn btn-success" })
+    </p>
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    RUC
+                </th>
+                <th>
+                    Razón Social
+                </th>
+                <th>
+                    Teléfono
+                </th>
+                <th>
+                    Dirección
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RUC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.razonSocial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.direccion)
+                </td>
+                <td style="text-align:right;">
+                    @Html.ActionLink("Detalles", "Details", new { id = item.idProveedor }, htmlAttributes: new { @class = "btn btn-info" })
+                    @Html.ActionLink("Editar", "Edit", new { id = item.idProveedor }, htmlAttributes: new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.idProveedor }, htmlAttributes: new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

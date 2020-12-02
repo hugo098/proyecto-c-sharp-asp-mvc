@@ -115,10 +115,8 @@ CREATE TABLE Contacto(
 
 4.Restaurar la instalación de paquetes NuGet
 
-5.En caso de tener problemas con la carpeta Roslyn
-
-  5.1. Reinstalar el paquete Microsoft.CodeDom.Providers.DotNetCompilerPlatform
-  
+5.En caso de tener problemas con la carpeta Roslyn. Reinstalar el paquete Microsoft.CodeDom.Providers.DotNetCompilerPlatform
+ 
 6.En caso de que el problema siga, googlear!
 
 

@@ -109,7 +109,7 @@ CREATE TABLE Contacto(
 
 1.Descargar o clonar el proyecto
 
-2.Añadir el archivo Web.config, Web.Debug.config y Web.Release.config al proyecto
+2.Añadir los archivo Web.config, Web.Debug.config y Web.Release.config al proyecto
 
 3.Compilar
 

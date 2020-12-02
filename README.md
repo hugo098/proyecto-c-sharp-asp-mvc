@@ -53,12 +53,7 @@ CREATE TABLE DetalleVenta(
 	PRIMARY KEY(idVenta, idProducto)
 );
 
-CREATE TABLE Contacto(
-	idContacto INT IDENTITY PRIMARY KEY,
-	fecha DATETIME NOT NULL DEFAULT(GETDATE()),
-	correo VARCHAR(25) NOT NULL,
-	mensaje  VARCHAR(255) NOT NULL
-);
+
 ----------------------------------------
 
 #CONFIGURACIÓN

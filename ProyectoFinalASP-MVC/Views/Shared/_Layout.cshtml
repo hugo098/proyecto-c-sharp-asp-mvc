@@ -50,6 +50,17 @@
                 <li class="nav-item">
                     @Html.ActionLink("Proveedores", "Index", "ProveedoresEntity", null, new { @class = "nav-link" })
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Reportes
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @Html.ActionLink("Stock Bajo", "Index", "ConsultaStockBajo", null, new { @class = "nav-link" })                        
+                        
+                    </div>
+                </li>
+
+
                 <li class="nav-item">
                     @Html.ActionLink("Contacto", "Create", "Contactos", null, new { @class = "nav-link" })
                 </li>
@@ -79,7 +90,7 @@
         </div>
         <footer style="height:4rem;width:100%; border-top:solid 1px #dee2e6; padding-top: 1em;">
 
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            <p>&copy; @DateTime.Now.Year - Proyecto Final C# - Hugo Rodriguez</p>
         </footer>
 
     </div>

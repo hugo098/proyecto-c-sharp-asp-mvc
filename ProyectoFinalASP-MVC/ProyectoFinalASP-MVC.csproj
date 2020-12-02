@@ -184,6 +184,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoriasController.cs" />
+    <Compile Include="Controllers\ConsultaStockBajoController.cs" />
     <Compile Include="Controllers\ContactosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -343,6 +344,7 @@
     <Content Include="Views\ProveedoresEntity\Details.cshtml" />
     <Content Include="Views\ProveedoresEntity\Edit.cshtml" />
     <Content Include="Views\ProveedoresEntity\Index.cshtml" />
+    <Content Include="Views\ConsultaStockBajo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

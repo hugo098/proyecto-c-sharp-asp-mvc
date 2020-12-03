@@ -11,10 +11,15 @@ namespace ProyectoFinalASP_MVC.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Categoria
     {
         public int idCategoria { get; set; }
+
+        [Required(ErrorMessage = "El campo Descripción es requerido")]
+        [StringLength(15, ErrorMessage = "{0} debe tener al menos {2} caracteres de longitud", MinimumLength = 2)]
+        [Display(Name = "Descripción")]
         public string descripcionCategoria { get; set; }
     }
 }

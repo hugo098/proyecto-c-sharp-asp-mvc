@@ -11,13 +11,28 @@ namespace ProyectoFinalASP_MVC.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Proveedor
     {
         public int idProveedor { get; set; }
+
+        [Required(ErrorMessage = "El campo Razón Social es requerido")]
+        [StringLength(50, ErrorMessage = "{0} debe tener al menos {2} caracteres de longitud", MinimumLength = 2)]
+        [Display(Name = "Razón Social")]
         public string razonSocial { get; set; }
+
+        [Required(ErrorMessage = "El campo Teléfono es requerido")]
+        [Phone]
+        [Display(Name = "Teléfono")]
         public string telefono { get; set; }
+
+        
         public string direccion { get; set; }
+
+        [Required(ErrorMessage="El campo RUC es requerido")]
+        [StringLength(50, ErrorMessage = "{0} debe tener al menos {2} caracteres de longitud", MinimumLength = 8)]
+        [Display(Name = "RUC")]
         public string RUC { get; set; }
     }
 }

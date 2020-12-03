@@ -11,12 +11,22 @@ namespace ProyectoFinalASP_MVC.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Contacto
     {
         public int idContacto { get; set; }
         public System.DateTime fecha { get; set; }
+
+        [Required(ErrorMessage = "El campo Correo es requerido")]
+        [StringLength(15)]
+        [Display(Name = "Email")]
+        [EmailAddress]
         public string correo { get; set; }
+
+        [Required(ErrorMessage = "El Mensaje es requerido")]
+        [StringLength(255, ErrorMessage = "{0} debe tener menos de {1} y mas de {2} caracteres de longitud", MinimumLength = 5)]
+        [Display(Name = "Mensaje")]
         public string mensaje { get; set; }
     }
 }
